@@ -21,7 +21,6 @@ def main():
         # preferred_skills=["Web application", "Mobile Development", "LLMs"],
         posted_date="2025-01-01",
     )
-    print("JD....", jd)
 
     # sample candidate
     candidate = Candidate(
@@ -30,8 +29,6 @@ def main():
         phone="1234567890",
         resume_path="resumes/umer-resume.pdf",
     )
-    print("candidate...",candidate)
-    
 
     # Workflow
     workflow = RecruitmentWorkflow(
@@ -40,13 +37,11 @@ def main():
         scheduler=InterviewScheduler(),
         notifier=EmailNotifier(**EMAIL_CONFIG),
     )
-    print("workflow", workflow)
-    
+
     workflow.set_job_description(jd)
-    proceed  = workflow.run(candidate=candidate)
-    
+    proceed = workflow.run(candidate=candidate)
+
     print(f"Candidate {proceed.name} Status: {proceed.status}, Score: {proceed.score}")
-    
 
 
 if __name__ == "__main__":
